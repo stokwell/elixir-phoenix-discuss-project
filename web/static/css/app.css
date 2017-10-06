@@ -1,1 +1,12 @@
 /* This file is for your main application css. */
+
+.help-clock {
+  color:red;
+  text-transform: capitalize;
+  position: absolute;
+  top:40px;
+}
+
+.form-group {
+  position: relative;
+}
