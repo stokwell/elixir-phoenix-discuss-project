@@ -14,7 +14,7 @@ defmodule Discuss.TopicController do
   end
 
   def show(conn, %{"id" => topic_id}) do
-    topic = Repo.get(Topic, topic_id)
+    topic = Repo.get_by!(Topic, slug: topic_id)
     render conn, "show.html", topic: topic
   end
 
@@ -43,7 +43,7 @@ defmodule Discuss.TopicController do
 
 
   def edit(conn, %{"id" => topic_id}) do
-    topic = Repo.get(Topic, topic_id)
+    topic = Repo.get_by!(Topic, slug: topic_id)
     changeset = Topic.changeset(topic)
 
     render  conn, "edit.html", changeset: changeset, topic: topic
@@ -51,7 +51,7 @@ defmodule Discuss.TopicController do
 
 
   def update(conn, %{"id" => topic_id, "topic" => topic}) do
-    old_topic = Repo.get(Topic, topic_id)
+    old_topic = Repo.get_by!(Topic, slug: topic_id)
     changeset = Topic.changeset(old_topic, topic)
 
     case Repo.update(changeset) do
@@ -66,7 +66,7 @@ defmodule Discuss.TopicController do
   end
 
   def delete(conn, %{"id" => topic_id}) do
-    Repo.get!(Topic, topic_id) |> Repo.delete!
+    topic = Repo.get_by!(Topic, slug: topic_id) |> Repo.delete!
 
     conn
     |> put_flash(:info, "Topic Deleted")
