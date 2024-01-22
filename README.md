@@ -18,3 +18,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+## And more...
+
+  * Taming Github OAuth integrations in Phoenix with the help of Ueberauth and Guardian (but then actually no just Ueberauth) https://dev.to/thepeoplesbourgeois/taming-github-oauth-integrations-in-phoenix-with-the-help-of-uberauth-and-guardian-but-then-actually-no-just-uberauth-2ec6

@@ -28,7 +28,7 @@ defmodule Discuss.TopicController do
 
   def create(conn, %{"topic" => topic}) do
     changeset = conn.assigns.user
-    |>build_assoc(:topics)
+    |> build_assoc(:topics)
     |> Topic.changeset(topic)
 
     case Repo.insert(changeset) do
@@ -66,7 +66,7 @@ defmodule Discuss.TopicController do
   end
 
   def delete(conn, %{"id" => topic_id}) do
-    topic = Repo.get_by!(Topic, slug: topic_id) |> Repo.delete!
+    Repo.get_by!(Topic, slug: topic_id) |> Repo.delete!
 
     conn
     |> put_flash(:info, "Topic Deleted")
@@ -86,5 +86,4 @@ defmodule Discuss.TopicController do
       |> halt()
     end
   end
-
 end
